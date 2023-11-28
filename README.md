@@ -49,7 +49,8 @@ into a Prismic + Next.js project.
 - `src/slices` folder (React Components that render the slice data).
 - `slicemachine.config.json` config file. "repositoryName" is the most important here.
 - `prismicio.js` - creates the prismic client sdk (if you don't want to interact
-  with REST APIs, Kinda like Firebase, Supabase, Pocketbase SDKs)
+  with REST APIs, Kinda like Firebase, Supabase, Pocketbase SDKs). Routes is
+  also here. Repository name as well.
 - `prismicio-types.d.ts` Slice machine generated types.
 - Optionally: `slice-simulator` page in Next.js, add this to simulate slices
   in real-time as you edit thme.
