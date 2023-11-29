@@ -14,7 +14,7 @@ pnpm dev
 
 ### 1. What are the major building blocks of the stack?
 
-- Slice Machine
+- **Slice Machine**
 
   - It's basically the schema builder (if you used Prisma). They're like the
     columns/datatypes defined for your content.
@@ -26,7 +26,7 @@ pnpm dev
     Which means they get saved on your git.
   - It only runs on localhost. `npm:slicemachine`.
 
-- CMS
+- **CMS**
 
   - This is where you add "content". They're like the rows/data for your content.
   - It runs on your Prismic Repository (tenant page).
@@ -34,7 +34,7 @@ pnpm dev
   - I noticed that if you check slicemachine.config.json and see
     `repositoryName: 'margaret-blog`. Your CMS will be running on `margaret-blog.prismic.io`.
 
-- The Website
+- **The Website**
   - This is just the Next.js Project here. Already very familiar.
   - Runs on localhost (npm:next:dev), or just deploy it duh.
 
@@ -48,14 +48,18 @@ into a Prismic + Next.js project.
 - `customtypes` folder (Where Slice Machine data gets saved)/
 - `src/slices` folder (React Components that render the slice data).
 - `slicemachine.config.json` config file. "repositoryName" is the most important here.
-- `prismicio.js` - creates the prismic client sdk (if you don't want to interact
-  with REST APIs, Kinda like Firebase, Supabase, Pocketbase SDKs). Routes is
-  also here. Repository name as well.
-- `prismicio-types.d.ts` Slice machine generated types.
-- Optionally: `slice-simulator` page in Next.js, add this to simulate slices
-  in real-time as you edit thme.
+- `prismicio.js`
 
-#### CLI/Workflow
+  - Exports "client". This is the prismic client sdk (if you don't want to interact
+    with REST APIs, Kinda like Firebase, Supabase, Pocketbase SDKs).
+  - Exports routes for pages document types.
+  - Exports prismic repo name
+
+- `prismicio-types.d.ts` Slice machine generated types.
+- Page: `slice-simulator` page in Next.js, add this to simulate slices
+  in real-time as you edit thme. Use thsi alongisde src/slices when making slices.
+
+#### General Workflow
 
 I will write the actual 'script' that runs this, not just the 'script aliases'
 in package.json.
@@ -65,7 +69,7 @@ in package.json.
   - Login to Prismic
   - Connects your project to the Prismic Repository.
   - Basically takes care of `slicemachine.config.json` for you.
-- `start-slicemachine` to run the slice machine.
+- `start-slicemachine` to run the slice machine dev server (always locally).
 - `prismic-ts-codegen` to run codegen for prismicio-types.
 <!-- # Prismic + Next.js Blog Starter
 
