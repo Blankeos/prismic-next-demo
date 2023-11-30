@@ -58,6 +58,12 @@ into a Prismic + Next.js project.
 - `prismicio-types.d.ts` Slice machine generated types.
 - Page: `slice-simulator` page in Next.js, add this to simulate slices
   in real-time as you edit thme. Use thsi alongisde src/slices when making slices.
+- Page: `[uid]/page.js`.
+  - This is the page that renders the "<SliceZone>".
+  - You want to query "Page" document type here.
+  - Render the `pages.data.slices` inside SliceZone and you're good to go.
+  - It's also going to be related to your `prismicio.js` because the routes
+    you define there will be replacing [uid] here.
 
 #### General Workflow
 
@@ -71,6 +77,7 @@ in package.json.
   - Basically takes care of `slicemachine.config.json` for you.
 - `start-slicemachine` to run the slice machine dev server (always locally).
 - `prismic-ts-codegen` to run codegen for prismicio-types.
+
 <!-- # Prismic + Next.js Blog Starter
 
 This sample blog is an excellent starting point to explore [Next.js][nextjs] and [Prismic][prismic]. Get it up and running in minutes. Modify and adapt it to your liking; it's all yours!
